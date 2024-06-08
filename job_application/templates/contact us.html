@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <h1>Contact Us</h1>
+    <p>If you have any questions, comments, or would like to learn more about The Best Company and our services, please don't hesitate to get in touch with us. We are here to assist you and ensure you have the best experience possible.</p>
+
+    <h2>Contact Information</h2>
+    <ul>
+        <li><strong>Email:</strong> <a href="mailto:info@thebestcompany.com">info@thebestcompany.com</a></li>
+        <li><strong>Phone:</strong> +1 (555) 123-4567</li>
+        <li><strong>Address:</strong> 1234 Innovation Way, Suite 100, Cityville, State, 12345</li>
+    </ul>
+
+    <h2>Business Hours</h2>
+    <p>Our business hours are as follows:</p>
+    <ul>
+        <li><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</li>
+        <li><strong>Saturday:</strong> 10:00 AM - 4:00 PM</li>
+        <li><strong>Sunday:</strong> Closed</li>
+    </ul>
+
+    <h2>Follow Us</h2>
+    <p>Stay connected with us through social media:</p>
+    <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Instagram</a></li>
+    </ul>
+
+    <h2>Send Us a Message</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" name="user_name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" class="form-control" id="subject" placeholder="Enter subject" name="subject" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Enter your message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mb-4">Send Message</button>
+    </form>
+
+    {% if messages %}
+    <div class="alert alert-success">
+        {% for m in messages %} {{m}} {% endfor %}
+    </div>
+
+    {% endif %}
+
+
+</div>
+
+{% endblock %}
